@@ -4,13 +4,17 @@ function GuessInput({guesses, setGuesses}) {
 
   const [guess, setGuess ] = React.useState('');
 
+  function setAndClearGuesses(){
+    setGuesses([...guesses, guess]);
+    setGuess('');
+  }
+
   return (
     <form 
       className="guess-input-wrapper"
       onSubmit={ e=> {
         e.preventDefault();
-        setGuesses([...guesses, guess]);
-        setGuess('');
+        setAndClearGuesses();
       }}>
       <label htmlFor="guess-input">Enter guess:</label>
       <input

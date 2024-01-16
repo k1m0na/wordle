@@ -1,15 +1,17 @@
-import React from 'react';
+import React from "react";
+import Guess from "../Guess";
+import { NUM_OF_GUESSES_ALLOWED } from  '../../constants';
+import { range } from '../../utils';
 
-function GuessList({guesses}) {
-  console.log(guesses)
+function GuessList({ guesses }) {
+  console.log(guesses);
+  
   return (
-    <div className='guess-results'>
-       {guesses.map(guess => (
-         <p 
-          className='guess'
-          key={crypto.randomUUID()}
-        >{guess}</p>
-       ))}
+    <div className="guess-results">
+      {range(NUM_OF_GUESSES_ALLOWED).map( (index) => (
+        <Guess key={crypto.randomUUID()} value={guesses[index]} />
+      ))}
+
     </div>
   );
 }
