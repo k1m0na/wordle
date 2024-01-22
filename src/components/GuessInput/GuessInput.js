@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GuessInput({guesses, setGuesses}) {
+function GuessInput({guesses, setGuesses, hasWon}) {
 
   const [guess, setGuess ] = React.useState('');
 
@@ -29,7 +29,8 @@ function GuessInput({guesses, setGuesses}) {
         onChange={ e => {
           const potentialWord = e.target.value;
           setGuess(potentialWord.toUpperCase());
-        }} 
+        }}
+        disabled={hasWon}
       />
     </form>
     

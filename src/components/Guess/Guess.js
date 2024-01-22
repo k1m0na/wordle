@@ -1,12 +1,13 @@
 import React from 'react';
-import Banner from "../Banner"
 
 import { range } from '../../utils';
 import { checkGuess } from "../../game-helpers";
 
-function Guess({ value, answer }) {
+function Guess({ value, answer, guesses, hasWon, setHasWon }) {
 
   const guessStatus = checkGuess(value, answer);
+
+  value === answer ? setHasWon(true) : setHasWon(false) ;
   
   return (
     <>
@@ -17,7 +18,6 @@ function Guess({ value, answer }) {
           </span>
         ))}
       </p>
-      <Banner />
     </>
   );
 }

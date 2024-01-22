@@ -1,14 +1,17 @@
 import React from 'react';
-/**
- * Need to pass in state of num of guesses
- * and detect winning conditions 
- *  -- but how?
- *     maybe passing in a prop from guess that compares current passed word to answer ...
- */
-function Banner() {
+
+function winOrLose(numOfGuesses, hasWon) {
+  if (hasWon === true) {
+    return "banner happy";
+  } else if (numOfGuesses >= 6) {
+    return "banner sad";
+  }
+};
+
+function Banner({numOfGuesses, hasWon}) {
   return (
     <>
-      <div className="banner">testing...</div>
+      <div className={winOrLose(numOfGuesses, hasWon)}></div>
     </>
   );
 }
