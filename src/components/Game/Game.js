@@ -1,6 +1,6 @@
 import React from 'react';
 
-mport { sample } from '../../utils';
+import { sample } from '../../utils';
 import { WORDS } from '../../data';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 
@@ -15,7 +15,6 @@ const answer = sample(WORDS);
 console.info({ answer });
 
 function Game() {
-  return <>Put a game here!</>;
   // running | won | lost
   const [gameStatus, setGameStatus] = React.useState('running');
 
